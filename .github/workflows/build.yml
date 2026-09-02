@@ -11,8 +11,8 @@ jobs:
       - uses: HaxeFoundation/setup-haxe@v2
       - name: Haxelib setup
         run: |
-          haxelib install utest
           haxelib dev record-macros .
+          haxelib install test-neko.hxml --always
       - name: Build
         run: haxe test-neko.hxml
 
@@ -27,8 +27,8 @@ jobs:
       - uses: HaxeFoundation/setup-hashlink@v1
       - name: Haxelib setup
         run: |
-          haxelib install utest
           haxelib dev record-macros .
+          haxelib install test-hl.hxml --always
       - name: Build
         run: haxe test-hl.hxml
 
@@ -42,8 +42,8 @@ jobs:
       - uses: HaxeFoundation/setup-haxe@v2
       - name: Haxelib setup
         run: |
-          haxelib install utest
           haxelib dev record-macros .
+          haxelib install test-php.hxml --always
       - name: Build
         run: haxe test-php.hxml
 
@@ -57,7 +57,7 @@ jobs:
       - uses: HaxeFoundation/setup-haxe@v2
       - name: Haxelib setup
         run: |
-          haxelib install utest hxcpp
           haxelib dev record-macros .
+          haxelib install test-cpp.hxml --always
       - name: Build
         run: haxe test-cpp.hxml
