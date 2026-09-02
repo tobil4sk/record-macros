@@ -1,14 +1,11 @@
 on: [push, pull_request]
 
-env:
-  HAXE_VERSIONS: [3.4.7, 4.0.5, 4.1.5, 4.2.5, 4.3.7, latest]
-
 jobs:
   test-neko:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+        version: [3.4.7, 4.0.5, 4.1.5, 4.2.5, 4.3.7, latest]
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
@@ -21,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+        version: [3.4.7, 4.0.5, 4.1.5, 4.2.5, 4.3.7, latest]
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
@@ -35,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+        version: [3.4.7, 4.0.5, 4.1.5, 4.2.5, 4.3.7, latest]
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
@@ -48,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+        version: [3.4.7, 4.0.5, 4.1.5, 4.2.5, 4.3.7, latest]
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
