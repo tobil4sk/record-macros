@@ -1,0 +1,58 @@
+on: [push, pull_request]
+
+env:
+  HAXE_VERSIONS: [3.4.7, 4.0.5, 4.1.5, 4.2.5, 4.3.7, latest]
+
+jobs:
+  test-neko:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: HaxeFoundation/setup-haxe@v2
+      - name: Install utest
+        run: haxelib install utest
+      - name: Build
+        run: haxe test-neko.hxml
+
+  test-hl:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: HaxeFoundation/setup-haxe@v2
+      - uses: HaxeFoundation/setup-hashlink@v1
+      - name: Install utest
+        run: haxelib install utest
+      - name: Build
+        run: haxe test-hl.hxml
+
+  test-php:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: HaxeFoundation/setup-haxe@v2
+      - name: Install utest
+        run: haxelib install utest
+      - name: Build
+        run: haxe test-php.hxml
+
+  test-cpp:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ${{ fromJSON(env.HAXE_VERSIONS) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: HaxeFoundation/setup-haxe@v2
+      - name: Install utest
+        run: haxelib install utest
+      - name: Build
+        run: haxe test-cpp.hxml
