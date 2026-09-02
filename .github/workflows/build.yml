@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
+        with:
+          haxe-version: ${{ matrix.version }}
       - name: Haxelib setup
         run: |
           haxelib dev record-macros .
@@ -24,6 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
+        with:
+          haxe-version: ${{ matrix.version }}
       - uses: HaxeFoundation/setup-hashlink@v1
       - name: Haxelib setup
         run: |
@@ -40,6 +44,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
+        with:
+          haxe-version: ${{ matrix.version }}
       - name: Haxelib setup
         run: |
           haxelib dev record-macros .
@@ -55,6 +61,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: HaxeFoundation/setup-haxe@v2
+        with:
+          haxe-version: ${{ matrix.version }}
       - name: Haxelib setup
         run: |
           haxelib dev record-macros .
