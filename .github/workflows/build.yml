@@ -57,7 +57,7 @@ jobs:
       - uses: HaxeFoundation/setup-haxe@v2
       - name: Haxelib setup
         run: |
-          haxelib install utest
+          haxelib install utest hxcpp
           haxelib dev record-macros .
       - name: Build
         run: haxe test-cpp.hxml
